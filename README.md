@@ -1,13 +1,14 @@
 # Efficient-Frontier-Analysis
 Efficient frontier의 예상(Estimate frontier)과 실제(Actual frontier) 투자곡선의 괴리는 필연적이다. 이는 과거 데이터를 통한 예측 값과 실제 투자 값의 오차에서 그 원인을 찾을 수 있다.
 
+## 코드 설명 및 분석 순서
 
 <!-- Output copied to clipboard! -->
 
 <!-----
 NEW: Check the "Suppress top comment" option to remove this info from the output.
 
-Conversion time: 4.659 seconds.
+Conversion time: 4.973 seconds.
 
 
 Using this Markdown file:
@@ -20,7 +21,7 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β29
-* Tue Jun 08 2021 22:21:38 GMT-0700 (PDT)
+* Tue Jun 08 2021 22:25:57 GMT-0700 (PDT)
 * Source doc: 논문 작성 준비
 * Tables are currently converted to HTML tables.
 * This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
