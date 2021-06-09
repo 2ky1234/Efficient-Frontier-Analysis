@@ -50,7 +50,7 @@ Efficient Frontier를 구하고 난 후, 그 때 사용하였던 weight, Actual 
 -> 위에서 도출한, evols : , erets : , avols : ,  arets :  를 E_D함수에 넣어서 유클리드 거리를 도출한다.  
 
 Estimate-Actual Frontier간 거리를 계산하기 위한 데이터는 위와 같은데,  1개월 간격으로 Estimate Frontier와 Actual Frontier 구현한 것을 데이터로 만든것입니다.
-위에서 1열은 0~509개의 번호로 이뤄져 있는데 이는 각각 월을 뜻하며, (1975년 1월 1일 ~ 2019년 12월 1일 데이터 사용했으며 Ex) 첫번째 데이터를 예시로보면  75년01월~75년06월 데이터를 사용하여 곡선을 그린것이 0행입니다.) 
+위에서 1열은 0-509개의 번호로 이뤄져 있는데 이는 각각 월을 뜻하며, (1975년 1월 1일 ~ 2019년 12월 1일 데이터 사용했으며 Ex) 첫번째 데이터를 예시로보면  75년01월-75년06월 데이터를 사용하여 곡선을 그린것이 0행입니다.) 
  0행을 기준으로 볼때, 앞선 단계에서 Estimate 곡선 한개를 30개의 점으로 만들어 erets(y축 return), evols(x축 volatility)로 만들었고, Actual 곡선또한 마찬가지로  arets(y축 return), avols(x축 volatility)좌표로 만들었습니다. 
 
  0행을 기준으로 본다면(나머지 행도 같습니다), 한 투자곡선당(한 행) 30개의 좌표순서쌍이 있고 1. (evols, erets) 2. (avols, arets), 이 좌표순서쌍 각각을 유클리도 거리로 거리를 구한뒤 30개의 거리를 모두더한 값이 좌측의 0행의 값으로 도출 되었습니다.
@@ -99,4 +99,64 @@ Housing + NFCI + RF + SP500 + BUSLOANS + long_term
 ## 12.  데이터에 대한 설명 독립변수 
 
 독립변수로 사용된 지표이며 모두 월별데이터입니다.
+
+## 13. Forward Selection
+
+processSubset은 앞으로 더 좋은 결과의 변수집합을 업데이트 하기위해, 각 변수의 Modeling 결과를 반환하는 역할을 하며, 반환되는 정보는 OLS의 결과인 ‘model’과 AIC결과이다
+
+변수 전진선택법은 “AIC”기준 가장 낮은 값을 선택한다.  함수는 두가지인데
+
+## 첫번째로, forward 함수는 아래와 같은 값을 반환함 
+
+### 1) remaining_predictors = [p for p in X.columns if p not in predictors] forward_model 함수에서 전달받은 predictors( 기존 선택변수 ) 에 포함되지 않은 변수를 remaining_predictors에 저장한다.
+
+### 2) for문을 통해 추가되지 않은 변수를 processSubset 변수에 넣어보고 그 결과를 result에 append를 통해 저장한다.  /  models에 결과를 데이터프레임 형태로 저장한다.
+
+### 3) best_model = models.loc[models['AIC'].argmin()]   <-  argmin을 통해 AIC값이 가장 작은 결고를 선택해서 저장한다. 이후 이값을 반환함
+
+## 두번째로, forward_model 함수는 
+### 1) 우선 forward_model 함수 안에 X(독립변수), y(종속변수)를 대입
+### 2) for i in range(1, len(X.columns) + 1):  에 의해 독립변수의 개수만큼 for문이 돌아간다
+### 3) 우선 아무것도 변수집합 predictors = [] 을 forward함수로 줘서 결과를 Forward_result에 반환받는다.
+### 4) if i >1 에서, 두번째 for문 시행부터 AIC가 기존보다 큰지 검사를 하며, 클 경우 break
+  Fmodels.loc[i] = Forward_result              <- 결과를 Fmodels.loc에 담는다.
+  predictors = Fmodels.loc[i]["model"].model.exog_names <-  담긴 결과를 predictors에 업데이트 
+  Fmodel_before = Fmodels.loc[i]["AIC"]           <-  다음 for문에서 AIC비교를 위해 담아준다.
+  predictors = [ k for k in predictors if k != 'const']  <-  업데이트된 변수중 상수는 걸러낸다
+### 5) 이후 독립변수의 개수( len(X.columns)  ) 만큼 for문을 반복하며,  더 좋은결과의 변수로 업데이트 하기전 if문을 통해 AIC가 개선되지 않았다면 업데이트 하지 않고 break
+
+
+## 14. Backward Elimination
+
+### 1) backward함수도 forward와 마찬가지로 AIC값이 가장낮은 변수조합을 찾는것이 목표다.
+
+### 2) AIC와 model 열을 가진 데이터프레임 Bmodels을 만든다.  predictors는 계속해서 줄어들며 업데이트가 되는데  backward 이기에 모든 변수인 X.columns 부터 시작한다. 
+
+### 3) while문을 통해 변수셋이 1개 이하로 떨어지기 전까지는 AIC값이 낮은 변수셋을 찾는 과정을 반복하게 된다.
+
+### 4) backward 함수를 통해 변수셋이 하나씩 줄어든 값을 반환받으므로,  Bmodels.loc[]에 순차적으로 backward함수의 결과인Backward_result를 기입합니다.
+
+### 5) Bmodel_before에 업데이트된 AIC값을 넣어, if, break의 비교에 사용합니다. 
+
+### 6) 좌측의 사진과 같이, 16 -> 1개의 변수를 향해 업데이트를 합니다. 만약 다음 업데이트의 AIC값이 기존보다 크다면 멈춥니다. 
+
+
+
+
+
+## 15.Stepwise Selection
+
+
+
+
+## 16. 모든 변수 적용시 회귀분석 
+
+
+
+
+## 17. forward, backward, stepwise 결과
+## 18. VIF 결과 및 수치가 높은 변수 제거 ( >10 )
+
+
+
 
