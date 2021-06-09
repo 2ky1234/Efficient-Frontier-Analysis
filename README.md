@@ -119,6 +119,316 @@ Housing + NFCI + RF + SP500 + BUSLOANS + long_term
 
 독립변수로 사용된 지표이며 모두 월별데이터입니다.
 
+
+<table>
+  <tr>
+   <td>변수명
+   </td>
+   <td>설명
+   </td>
+   <td>단위
+   </td>
+   <td>평균
+   </td>
+   <td>최소
+   </td>
+   <td>최대
+   </td>
+   <td>출처
+   </td>
+  </tr>
+  <tr>
+   <td>Real_Effective 
+   </td>
+   <td>Real effective exchange rates are calculated as weighted averages of bilateral exchange rates adjusted by relative consumer prices.
+   </td>
+   <td>Index 2010=100,
+<p>
+Seasonally Adjusted
+   </td>
+   <td>110.13
+   </td>
+   <td>92.94
+   </td>
+   <td>147.05
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/RNUSBIS">https://fred.stlouisfed.org/series/RNUSBIS</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SP500
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>911.33
+   </td>
+   <td>83.87
+   </td>
+   <td>3230.78
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>BUSLOANS 
+   </td>
+   <td>View data of the value of loans issued by all commercial banks for commercial and industrial purposes each month.
+   </td>
+   <td>Billions of U.S. Dollars, Seasonally Adjusted
+   </td>
+   <td>5.065
+   </td>
+   <td>0.110
+   </td>
+   <td>18.650
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/BUSLOANS">https://fred.stlouisfed.org/series/BUSLOANS</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Month_3 
+   </td>
+   <td>3-Month or 90-day Rates and Yields: Interbank Rates for the United States
+   </td>
+   <td>Percent,
+<p>
+Not Seasonally Adjusted
+   </td>
+   <td>5.065
+   </td>
+   <td>0.110
+   </td>
+   <td>18.650
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/IR3TIB01USM156N">https://fred.stlouisfed.org/series/IR3TIB01USM156N</a>
+   </td>
+  </tr>
+  <tr>
+   <td>CPIAUCSL 
+   </td>
+   <td>The Consumer Price Index for All Urban Consumers: All Items (CPIAUCSL) is a measure of the average monthly change in the price for goods and services paid by urban consumers between any two time periods. It can also represent the buying habits of urban consumers.
+   </td>
+   <td>Index 1982-1984=100,
+<p>
+Seasonally Adjusted
+   </td>
+   <td>160.3
+   </td>
+   <td>54
+   </td>
+   <td>258.4
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/CPIAUCSL">https://fred.stlouisfed.org/series/CPIAUCSL</a>
+   </td>
+  </tr>
+  <tr>
+   <td>CCI 
+   </td>
+   <td>indicator provides an indication of future developments of households’ consumption and saving, based upon answers regarding their expected financial situation, their sentiment about the general economic situation, unemployment and capability of savings. 
+   </td>
+   <td><strong>Amplitude adjusted, Long-term average = 100</strong>
+   </td>
+   <td>99.93
+   </td>
+   <td>96.2
+   </td>
+   <td>102.6
+   </td>
+   <td>https://data.o
+<p>
+ecd.org
+   </td>
+  </tr>
+  <tr>
+   <td>Inflation 
+   </td>
+   <td>The <strong><em>Inflation rate</em></strong> is calculated from the Consumer Price Index (<a href="https://inflationdata.com/Inflation/Consumer_Price_Index/CPI.asp">CPI-U</a>) which is compiled by the <a href="http://stats.bls.gov/news.release/cpi.t01.htm">U.S. Bureau of Labor Statistics</a> and is based upon a 1982-84 Base of 100.
+   </td>
+   <td>
+   </td>
+   <td>0.00294
+   </td>
+   <td>-0.0192
+   </td>
+   <td>0.0152
+   </td>
+   <td><a href="https://inflationdata.com/Inflation/Inflation_Rate/HistoricalInflation.aspx#table">https://inflationdata.com/Inflation/Inflation_Rate/HistoricalInflation.aspx#table</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Housing 
+   </td>
+   <td>미국 주택 가격 지수
+   </td>
+   <td>
+   </td>
+   <td>20.01
+   </td>
+   <td>6.79
+   </td>
+   <td>123.73
+   </td>
+   <td>http://www.m
+<p>
+ultpl.com
+   </td>
+  </tr>
+  <tr>
+   <td>long_term 
+   </td>
+   <td>Long-Term Government Bond Yields: 10-year: Main (Including Benchmark) for the United States
+   </td>
+   <td>Percent,
+<p>
+Not Seasonally Adjusted
+   </td>
+   <td>6.252
+   </td>
+   <td>1.5
+   </td>
+   <td>15.32
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/IRLTLT01USM156N">https://fred.stlouisfed.org/series/IRLTLT01USM156N</a>
+   </td>
+  </tr>
+  <tr>
+   <td>NFCI 
+   </td>
+   <td>The Chicago Fed's National Financial Conditions Index (NFCI) provides a comprehensive weekly update on U.S. financial conditions in money markets, debt and equity markets and the traditional and "shadow" banking systems. Positive values of the NFCI indicate financial conditions that are tighter than average, while negative values indicate financial conditions that are looser than average.
+   </td>
+   <td>Index, Not Seasonally Adjusted
+   </td>
+   <td>-0.1170
+   </td>
+   <td>-0.98
+   </td>
+   <td>3.79
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/NFCI#0">https://fred.stlouisfed.org/series/NFCI#0</a>
+   </td>
+  </tr>
+  <tr>
+   <td>M3
+   </td>
+   <td>총유동성, 전체 통화에 증권, 보험 등 제2금융권의 예금까지 모두
+<p>
+포함한 통화지표
+<p>
+Copyright, 2016, OECD. Reprinted with permission.
+   </td>
+   <td>National Currency,
+<p>
+Seasonally Adjusted
+   </td>
+   <td>5.562e+12
+   </td>
+   <td>9.750e+11
+   </td>
+   <td>1.530e+13
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/MABMM301USM189S">https://fred.stlouisfed.org/series/MABMM301USM189S</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Unemployment_Rate 
+   </td>
+   <td>The unemployment rate represents the number of unemployed as a percentage of the labor force. Labor force data are restricted to people 16 years of age and older, who currently reside in 1 of the 50 states or the District of Columbia, who do not reside in institutions (e.g., penal and mental facilities, homes for the aged), and who are not on active duty in the Armed Forces.
+   </td>
+   <td>Percent, Seasonally Adjusted
+   </td>
+   <td>6.265
+   </td>
+   <td>3.5
+   </td>
+   <td>10.8
+   </td>
+   <td><a href="https://fred.stlouisfed.org/series/UNRATE">https://fred.stlouisfed.org/series/UNRATE</a>
+   </td>
+  </tr>
+  <tr>
+   <td>SMB
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>0.2079
+   </td>
+   <td>-14.91
+   </td>
+   <td>18.32
+   </td>
+   <td><a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html</a>
+   </td>
+  </tr>
+  <tr>
+   <td>HML
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>0.262
+   </td>
+   <td>-11.18
+   </td>
+   <td>12.87
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>RMW
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>0.3243
+   </td>
+   <td>-18.33
+   </td>
+   <td>13.33
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>CMA
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>0.2635
+   </td>
+   <td>-6.86
+   </td>
+   <td>9.56
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>mkt - RF
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>0.3667
+   </td>
+   <td>0.00
+   </td>
+   <td>1.35
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
 ## 13. Forward Selection
 ![image](https://user-images.githubusercontent.com/80387630/121300623-0d159c80-c932-11eb-9ac2-cf60857d5305.png)
 
